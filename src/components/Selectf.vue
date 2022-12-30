@@ -43,6 +43,13 @@ export default {
       selected3: null,
     };
   },
+  methods: {
+    clear() {
+      this.selected1 = null
+      this.selected2 = null
+      this.selected3 = null
+    }
+  }
 };
 </script>
 
@@ -106,7 +113,7 @@ export default {
           type="button"
           class="btn btn-outline-success"
           v-if="selected1 != null && selected2 != null"
-          @click="$refs.child.log()"
+          @click="$refs.child.log(); clear()"
         >
           Buscar
         </button>

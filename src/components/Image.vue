@@ -11,7 +11,7 @@ const cld = new Cloudinary({
 });
 
 // Instantiate a CloudinaryImage object for the image with the public ID, 'docs/models'.
-let myImg = cld.image('aqi/2016/Mayo')
+let myImg = cld.image('hotspot/2016/Enero')
 
 myImg.resize(scale().height(620));
 
