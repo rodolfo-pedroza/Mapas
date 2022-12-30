@@ -11,7 +11,7 @@ const cld = new Cloudinary({
 });
 
 // Instantiate a CloudinaryImage object for the image with the public ID, 'docs/models'.
-let myImg = cld.image('Coropletas_AQI/2016/Mayo2')
+let myImg = cld.image('aqi/2016/Mayo')
 
 myImg.resize(scale().height(620));
 
@@ -26,14 +26,28 @@ export default {
       myImg,
     };
   },
+  props: ['cat','year','month'],
+  methods: {
+    log() {
+
+      let imgName = '';
+      if (this.month != null) {
+        imgName = this.cat+'/'+this.year+'/'+this.month        
+      }else{
+        imgName = this.cat+'/'+this.year        
+      }    
+
+      console.log(imgName)
+
+      this.myImg = myImg = cld.image(imgName).resize(scale().height(620));
+    }
+  }
 };
 </script>
 
 <!-- Render the image in a Vue.js component. -->
 <template>
-  <div class="container">
-    <div class="mx-auto text-center">
-      <AdvancedImage :cldImg="myImg" />
-    </div>
+  <div>
+    <AdvancedImage :cldImg="myImg" />
   </div>
 </template>
