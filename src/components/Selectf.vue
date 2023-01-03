@@ -45,8 +45,8 @@ export default {
   },
   methods: {
     clear() {
-      this.selected1 = null
-      this.selected2 = null
+      // this.selected1 = null
+      // this.selected2 = null
       this.selected3 = null
     }
   }
